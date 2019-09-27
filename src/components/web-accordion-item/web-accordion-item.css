@@ -1,0 +1,6 @@
+section {  
+  overflow: hidden;
+}
+.transitioning {
+  transition:height .35s ease;  
+}

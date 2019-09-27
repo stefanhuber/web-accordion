@@ -1,0 +1,41 @@
+{
+  "name": "web-accordion",
+  "version": "1.0.0",
+  "description": "web-complete is a lightweight, dependency-free, styleable accordion web component",
+  "author": {
+    "name": "Stefan Huber",
+    "email": "mail@stefanhuber.at",
+    "url": "https://www.stefanhuber.at"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/web-accordion/web-accordion.js",
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "homepage": "https://github.com/stefanhuber/web-accordion",
+  "bugs": {
+    "url": "https://github.com/stefanhuber/web-accordion/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stefanhuber/web-accordion.git"
+  },
+  "scripts": {
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate"
+  },
+  "devDependencies": {
+    "@stencil/core": "^1.3.3"
+  },
+  "license": "MIT"
+}

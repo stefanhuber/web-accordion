@@ -1,0 +1,9 @@
+node_modules/
+src/
+docs/
+.stencil/
+www/
+.gitignore
+tsconfig.json
+.editorconfig
+stencil.config.ts
