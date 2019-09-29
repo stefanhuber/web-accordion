@@ -49,8 +49,8 @@ export class WebAccordionItem {
     }    
   }
 
-  componentDidRender() {
-    this.calculatedHeight = this.element.querySelector(':not([slot="title"])').clientHeight;
+  componentDidRender() {    
+    this.calculatedHeight = this.element.querySelector('web-accordion-item > :not([slot="title"])').clientHeight;
   }
 
   /**
