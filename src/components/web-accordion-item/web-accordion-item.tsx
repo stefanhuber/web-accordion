@@ -78,9 +78,9 @@ export class WebAccordionItem {
    */
   @Listen('contentChanged')
   recalculateHeight() {
-    this.calculateHeight();
+    const oldCalculatedHeight = this.calculatedHeight;
 
-    if (this.open) {
+    if (this.calculateHeight() != oldCalculatedHeight && this.open) {
       this.transitioning = true;
     }
   }
@@ -118,6 +118,7 @@ export class WebAccordionItem {
 
   calculateHeight() {
     this.calculatedHeight = this.element.querySelector('web-accordion-item > :not([slot="title"])').clientHeight;
+    return this.calculatedHeight;
   }
 
   render() {
