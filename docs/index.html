@@ -20,6 +20,9 @@
       background:lightgray;
       padding:20px 10px;
     }    
+    web-accordion + button {
+      margin-top:20px;
+    }
   </style>
 </head>
 <body>
@@ -39,6 +42,22 @@
             <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </web-accordion-item>
     </web-accordion>
+
+    <button id="content-change-button">Change Content of #1 item</button>
+
+    <script>
+      document.querySelector("#content-change-button").addEventListener("click", function() {
+        let item = document.querySelector('#content-1');
+        
+        let snippets = [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        ];
+        
+        item.innerHTML = snippets[Math.floor(Math.random() * snippets.length)];
+      });
+    </script>
   </main>
 </body>
 </html>

@@ -7,17 +7,19 @@
 
 ## Properties
 
-| Property | Attribute | Description                                        | Type      | Default |
-| -------- | --------- | -------------------------------------------------- | --------- | ------- |
-| `index`  | `index`   | index of accordion item from top to bottom         | `number`  | `-1`    |
-| `open`   | `open`    | accordion item is open or opening (css transition) | `boolean` | `false` |
+| Property                 | Attribute | Description                                                                      | Type                                        | Default                              |
+| ------------------------ | --------- | -------------------------------------------------------------------------------- | ------------------------------------------- | ------------------------------------ |
+| `index`                  | `index`   | index of accordion item from top to bottom                                       | `number`                                    | `-1`                                 |
+| `mutationObserverConfig` | --        | The mutation observer config to listen for content changes in the accordion item | `{ childList: boolean; subtree: boolean; }` | `{ childList: true, subtree: true }` |
+| `open`                   | `open`    | accordion item is open or opening (css transition)                               | `boolean`                                   | `false`                              |
 
 
 ## Events
 
-| Event       | Description                                 | Type               |
-| ----------- | ------------------------------------------- | ------------------ |
-| `openEvent` | triggered when the accordion item is opened | `CustomEvent<any>` |
+| Event            | Description                                              | Type               |
+| ---------------- | -------------------------------------------------------- | ------------------ |
+| `contentChanged` | triggered when the content of the accordion item changes | `CustomEvent<any>` |
+| `openEvent`      | triggered when the accordion item is opened              | `CustomEvent<any>` |
 
 
 ## Methods

@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Event, EventEmitter, Method, Element, State, Watch } from '@stencil/core';
+import { Component, Host, h, Prop, Event, EventEmitter, Method, Element, State, Watch, Listen } from '@stencil/core';
 
 @Component({
   tag: 'web-accordion-item',
@@ -8,6 +8,7 @@ import { Component, Host, h, Prop, Event, EventEmitter, Method, Element, State, 
 export class WebAccordionItem {
   
   protected calculatedHeight = 0;
+  protected mutationObserver:MutationObserver;
 
   get style() {
     return {
@@ -28,7 +29,12 @@ export class WebAccordionItem {
    * accordion item is open or opening (css transition)
    */
   @Prop({mutable:true, reflect:true}) open = false;
-  
+
+  /**
+   * The mutation observer config to listen for content changes in the accordion item
+   */
+  @Prop() mutationObserverConfig = { childList: true, subtree: true };
+   
   @Watch("open")
   stateChanged() {
     this.transitioning = true;
@@ -39,18 +45,44 @@ export class WebAccordionItem {
    */
   @Event() openEvent:EventEmitter;
 
-  componentDidLoad() {
+  /**
+   * triggered when the content of the accordion item changes
+   */
+  @Event() contentChanged:EventEmitter;
+
+  componentWillLoad() {
     const children = this.element.parentElement.querySelectorAll('web-accordion-item');
     for (let i = 0; i < children.length; i++) {
       const child = children[i];
       if (child == this.element) {
         this.index = i;
       }
+    } 
+    
+    this.mutationObserver = new MutationObserver(() => this.contentChanged.emit());
+    this.mutationObserver.observe(this.element, this.mutationObserverConfig);
+  }
+
+  componentDidLoad() {
+    this.calculateHeight();
+  }
+
+  disconnectedCallback() {
+    if (this.mutationObserver) {
+      this.mutationObserver.disconnect();
     }    
   }
 
-  componentDidRender() {    
-    this.calculatedHeight = this.element.querySelector('web-accordion-item > :not([slot="title"])').clientHeight;
+  /**
+   * recalculate Height of accordion item (e.g., when the content of the item changes)
+   */
+  @Listen('contentChanged')
+  recalculateHeight() {
+    this.calculateHeight();
+
+    if (this.open) {
+      this.transitioning = true;
+    }
   }
 
   /**
@@ -82,6 +114,10 @@ export class WebAccordionItem {
 
   handleTransitionEnd() {
     this.transitioning = false;
+  }
+
+  calculateHeight() {
+    this.calculatedHeight = this.element.querySelector('web-accordion-item > :not([slot="title"])').clientHeight;
   }
 
   render() {
