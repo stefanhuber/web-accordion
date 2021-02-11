@@ -30,10 +30,7 @@ export namespace Components {
         /**
           * The mutation observer config to listen for content changes in the accordion item
          */
-        "mutationObserverConfig": {
-            childList: boolean;
-            subtree: boolean;
-        };
+        "mutationObserverConfig": { childList: boolean; subtree: boolean; };
         /**
           * accordion item is open or opening (css transition)
          */
@@ -73,10 +70,7 @@ declare namespace LocalJSX {
         /**
           * The mutation observer config to listen for content changes in the accordion item
          */
-        "mutationObserverConfig"?: {
-            childList: boolean;
-            subtree: boolean;
-        };
+        "mutationObserverConfig"?: { childList: boolean; subtree: boolean; };
         /**
           * triggered when the content of the accordion item changes
          */
