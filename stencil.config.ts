@@ -5,9 +5,11 @@ export const config: Config = {
   buildEs5: 'prod',
   outputTargets: [
     {
-      type: 'dist',
-      esmLoaderPath: '../loader'
+      type: 'dist-custom-elements-bundle'
     },
+    {
+      type: 'dist'
+    },    
     {
       type: 'docs-readme'
     },

@@ -7,13 +7,19 @@
 ## Script tag
 
 ```html
-<script src='https://unpkg.com/web-accordion/dist/web-accordion.js'></script>
+<script type="module" src="https://unpkg.com/web-accordion/dist/web-accordion/web-accordion.esm.js"></script>
+<script nomodule src="https://unpkg.com/web-accordion/dist/web-accordion/web-accordion.js"></script>
 ```
 
 ## Node Module
 
  - Install via npm: `npm install web-accordion --save`
- - Add script to html: `<script src='node_modules/web-accordion/dist/web-accordion.js'></script>`
+ - Import `web-accordion` in your JavaScript and `defineCustomElements`:
+  
+```javascript
+import { defineCustomElements } from 'web-accordion';
+defineCustomElements();
+```
 
 ## Framework integration
 
