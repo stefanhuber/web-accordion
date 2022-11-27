@@ -1,23 +1,22 @@
 {
   "name": "web-accordion",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "web-complete is a lightweight, dependency-free, styleable accordion web component",
   "author": {
     "name": "Stefan Huber",
     "email": "mail@stefanhuber.at",
     "url": "https://www.stefanhuber.at"
   },
-  "main": "dist/index.cjs.js",
-  "module": "dist/custom-elements/index.js",
-  "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs",
-  "types": "dist/types/index.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
-  "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/web-accordion/web-accordion.esm.js",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.js",
+  "es2015": "./dist/esm/index.mjs",
+  "es2017": "./dist/esm/index.mjs",
+  "types": "./dist/types/index.d.ts",
+  "collection": "./dist/collection/collection-manifest.json",
+  "collection:main": "./dist/collection/index.js",
+  "unpkg": "./dist/web-accordion/web-accordion.esm.js",
   "files": [
-    "dist/",
-    "loader/"
+    "dist/"
   ],
   "homepage": "https://github.com/stefanhuber/web-accordion",
   "bugs": {
@@ -35,7 +34,7 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@stencil/core": "^2.4.0"
+    "@stencil/core": "^2.19.3"
   },
   "license": "BSD-2"
 }

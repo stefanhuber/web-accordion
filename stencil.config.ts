@@ -5,7 +5,7 @@ export const config: Config = {
   buildEs5: 'prod',
   outputTargets: [
     {
-      type: 'dist-custom-elements-bundle'
+      type: 'dist-custom-elements'
     },
     {
       type: 'dist'

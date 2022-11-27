@@ -41,6 +41,10 @@ export namespace Components {
         "openItem": () => Promise<void>;
     }
 }
+export interface WebAccordionItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWebAccordionItemElement;
+}
 declare global {
     interface HTMLWebAccordionElement extends Components.WebAccordion, HTMLStencilElement {
     }
@@ -74,11 +78,11 @@ declare namespace LocalJSX {
         /**
           * triggered when the content of the accordion item changes
          */
-        "onContentChanged"?: (event: CustomEvent<any>) => void;
+        "onContentChanged"?: (event: WebAccordionItemCustomEvent<any>) => void;
         /**
           * triggered when the accordion item is opened
          */
-        "onOpenEvent"?: (event: CustomEvent<any>) => void;
+        "onOpenEvent"?: (event: WebAccordionItemCustomEvent<any>) => void;
         /**
           * accordion item is open or opening (css transition)
          */
